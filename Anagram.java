@@ -61,6 +61,7 @@ public class Anagram {
 		for(int i=0;i<str.length();i++) {
 			test = str.charAt(i);
 			if (test==' ') {
+				ret+=test;
 				adder=false;
 			} else if ((int)test<65 || (int) test > 122 ) {
 				adder=false;
