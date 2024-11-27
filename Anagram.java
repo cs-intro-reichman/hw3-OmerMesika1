@@ -8,7 +8,6 @@ public class Anagram {
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
 		// Tests the preProcess function.
 		System.out.println(preProcess("What? No way!!!"));
-		
 		// Tests the randomAnagram function.
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 		
@@ -30,18 +29,37 @@ public class Anagram {
 		// Replace the following statement with your code
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
-		if(str1.length()!=str2.length()) return false;
+		int length1 = str1.length();
+		int length2 = str2.length();
+		int spacecount1 = 0;
+		int spacecount2 = 0;
+		for(int x=0;x<str1.length();x++){
+			if ((int) str1.charAt(x) == 32) {
+				spacecount1++;
+			}
+		}
+		for(int y=0;y<str2.length();y++){
+			if ((int) str2.charAt(y) == 32) {
+				spacecount2++;
+			}
+		}
+
+		if((length1-spacecount1)!=(length2-spacecount2)) return false;
 		int counter1=0;
 		int counter2=0;
 		for(int i=0;i<str1.length();i++) {
-			char current = str1.charAt(i); 
-			for(int j=0;j<str2.length();j++) {
-				if (current == str2.charAt(j)) {
+			char current = str1.charAt(i);
+			if((int)current!=32) {
+			for(int j=0;j<str1.length();j++) {
+				if (current == str1.charAt(j)) {
 					counter1++;
 				}
-				if(current == str1.charAt(j)) {
+			}
+			for(int j=0;j<str2.length();j++) {
+				if(current == str2.charAt(j)) {
 					counter2++;
 				}
+			}
 			}
 			if (counter1!=counter2) {
 				return false;

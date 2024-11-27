@@ -3,9 +3,9 @@ public class TestAnagram {
     private static int passedTests = 0;
 
     public static void main(String[] args) {
-        //testIsAnagram();
+        testIsAnagram();
         testPreProcess();
-        //testRandomAnagram();
+        testRandomAnagram();
         
         System.out.println("\nTotal tests: " + totalTests);
         System.out.println("Passed tests: " + passedTests);
