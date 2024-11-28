@@ -67,10 +67,10 @@ public class LoanCalc {
         // Replace the following statement with your code
 		iterationCounter=0;
 		double lower = loan/n;
-		double higher = loan/1.14;
+		double higher = loan;
 		double avarage = (lower+higher)/2;
 		double endResult = endBalance(loan, rate, n, avarage);
-		while (Math.abs(endResult)>epsilon) {
+		while ((higher-lower)>epsilon) {
 			if (endBalance(loan, rate, n, higher)*endResult<0) {
 				lower = avarage;
 			} else {
